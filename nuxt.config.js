@@ -1,3 +1,6 @@
+require('dotenv').config()
+const webpack = require('webpack')
+const { API_BASE_URL } = process.env
 
 export default {
   /*
@@ -35,6 +38,7 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
+    '~/plugins/http.js'
   ],
   /*
   ** Auto import components
@@ -65,5 +69,14 @@ export default {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
-  }
+    plugins: [
+      new webpack.ProvidePlugin({
+        _   : 'lodash',
+      }),
+    ],
+  },
+
+  env: {
+    API_BASE_URL
+  },
 }

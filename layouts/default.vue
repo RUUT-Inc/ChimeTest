@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div class="w-100 bg-primary" style="height: 80px"></div>
     <Nuxt />
   </div>
 </template>
